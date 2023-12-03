@@ -1,0 +1,12 @@
+RewriteEngine On
+
+# For POST requests to /api/create-user
+RewriteCond %{REQUEST_METHOD} =POST
+RewriteRule ^api/create-user$ index.php [NC,L]
+
+# For GET requests to /api/user
+RewriteCond %{REQUEST_METHOD} =GET
+RewriteRule ^api/get-user$ index.php [NC,L]
+
+RewriteCond %{REQUEST_METHOD} =POST
+RewriteRule ^api/verify-user$ index.php [NC,L]

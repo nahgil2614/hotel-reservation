@@ -5,10 +5,13 @@ $uri = explode('/', $uri);
 // var_dump($uri);
 if ((isset($uri[3]))) {
     $objFeedController = new UserController();
+    $objRoomController = new RoomController();
     if ($uri[3] == 'get-user' || $uri[3] == 'create-user') {
         $objFeedController->requestHandler();
     } elseif ($uri[3] == 'verify-user') {
         $objFeedController->loginHandler();
+    } elseif ($uri[3] == 'get-room') {
+        $objRoomController->requestHandler();
     }
 } 
 // if ((isset($uri[2]) && $uri[2] != 'user') || !isset($uri[3])) {

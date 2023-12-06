@@ -1,0 +1,136 @@
+html {
+    font-size: 62.5%;
+    font-family: "Poppins", sans-serif;
+    
+}
+* {
+    box-sizing: border-box;
+}
+
+body {
+    padding: 80px 0;
+    
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login {
+    padding: 40px 40px;
+    background-color: #fff;
+    width: 100%;
+    max-width: 450px;
+    border-radius: 5px;
+    box-shadow: 0 4px 4px #bcbcbc;
+}
+.login-heading{
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+}
+.login-google{
+    padding: 12px;
+    border-radius: 5px;
+    display: block;
+    width: 100%;
+    color: #2A2B2E;
+    font-size: 20px;
+    font-family: "Poppins", sans-serif;
+    background-color: #fff;
+    border: 1px solid #E0E0E5;
+    align-items: center;
+    
+    cursor: pointer;
+}
+.login-google-icon{
+    color: red;
+}
+.login-or{
+    text-align: center;
+    font-size: 16px;
+    
+    margin: 25px auto;
+    position: relative;
+
+}
+.login-or span{
+    display: inline-block;
+    padding: 0px 20px;
+    background-color: #fff;
+    position: relative;
+    z-index: 2;
+}
+.login-or:after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    background-color: #E0E0E5;
+    position: absolute;
+    top:50%;
+    left:0;
+    transform: translateY(-50%);
+}
+.login-label{
+    font-size: 16px;
+    /* color: #808194; */
+    margin-bottom: 7px;
+    display: inline-block;
+    cursor: pointer;
+}
+.login-input{
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    outline: none;
+    border: 1px solid #808194;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+.login-submit {
+    padding:15px;
+    color: white;   
+    font-size: 16px;
+    text-align: center;
+    border: 0;
+    outline: none;
+    display: block;
+    width: 100%;
+    border-radius: 5px;
+    background-color: #4F90F0;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.login-new-account{
+    text-align: center;
+    font-size: 13px;
+}
+.forgot-password{
+    
+    width: 100%;
+    font-size: 13px;
+    
+}
+.rememberme{
+    width: 11px;
+    height: 11px;
+}
+.rememberme-lable{
+    font-weight: bold;
+    margin-right: 148px;
+}
+.forgot-pw-link{
+    color:black;
+    font-weight: 700;
+    text-decoration: none;
+    
+}
+.signup-link{
+    color:black;
+    font-weight: 700;
+    text-decoration: none;
+}

@@ -8,6 +8,35 @@ class BaseController
     {
         $this->sendOutput('', array('HTTP/1.1 404 Not Found'));
     }
+
+    public function requestHandler($method, $handlerName) {
+        if ($_SERVER["REQUEST_METHOD"] === $method) {
+            try {
+                $responseData = json_encode($this->$handlerName());
+            } catch (Error $e) {
+                $strErrorDesc = $e->getMessage() . ' Something went wrong! Please contact support.';
+                $strErrorHeader = 'HTTP/1.1 500 Internal Server Error';
+            }
+        }
+        else {
+            $strErrorDesc = 'Method not supported';
+            $strErrorHeader = 'HTTP/1.1 422 Unprocessable Entity';
+        }
+
+        if (!isset($strErrorDesc)) {
+            $this->sendOutput(
+                $responseData,
+                array('Content-Type: application/json', 'HTTP/1.1 200 OK')
+            );
+        }
+        else {
+            $this->sendOutput(
+                json_encode(array('error' => $strErrorDesc)),
+                array('Content-Type: application/json', $strErrorHeader)
+            );
+        }
+    }
+    
     /** 
      * Get URI elements. 
      * 
@@ -33,13 +62,14 @@ class BaseController
     protected function getPostBody() {
         return $_POST;
     }
+
     /** 
      * Send API output. 
      * 
      * @param mixed $data 
      * @param string $httpHeader 
      */
-    protected function sendOutput($data, $httpHeaders = array())
+    protected function sendOutput($data, $httpHeaders=array())
     {
         header_remove('Set-Cookie');
         if (is_array($httpHeaders) && count($httpHeaders)) {
@@ -50,5 +80,4 @@ class BaseController
         echo $data;
         exit;
     }
-    
 }

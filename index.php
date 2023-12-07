@@ -1,24 +1,34 @@
 <?php
 require __DIR__ . "/inc/bootstrap.php";
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+#var_dump($uri);
 $uri = explode('/', $uri);
-// var_dump($uri);
-if ((isset($uri[3]))) {
-    $objFeedController = new UserController();
+if (isset($uri[1]) && $uri[1] === "api" && isset($uri[2])) {
+    $objUserController = new UserController();
     $objRoomController = new RoomController();
-    if ($uri[3] == 'get-user' || $uri[3] == 'create-user') {
-        $objFeedController->requestHandler();
-    } elseif ($uri[3] == 'verify-user') {
-        $objFeedController->loginHandler();
-    } elseif ($uri[3] == 'get-room') {
-        $objRoomController->requestHandler();
+    switch ($uri[2]) {
+        case 'create-user':
+            $objUserController->requestHandler('POST', 'create');
+            break;
+        case 'get-user':
+            $objUserController->requestHandler('GET', 'get');
+            break;
+        case 'verify-user':
+            $objUserController->requestHandler('POST', 'login');
+            break;
+            
+        case 'get-room':
+            $objRoomController->requestHandler('GET', 'get');
+            break;
+        case 'reserve-room':
+            $objRoomController->requestHandler('POST', 'reserve');
+            break;
+        case 'cancel-room':
+            $objRoomController->requestHandler('GET', 'cancel');
+            break;
     }
-} 
-// if ((isset($uri[2]) && $uri[2] != 'user') || !isset($uri[3])) {
-//     header("HTTP/1.1 404 Not Found");
-//     exit();
-// }
-// require PROJECT_ROOT_PATH . "/Controller/Api/UserController.php";
-// $objFeedController = new UserController();
-// $strMethodName = $uri[3] . 'Action';
-// $objFeedController->{$strMethodName}();
+}
+else {
+    header("HTTP/1.1 404 Not Found");
+    exit;
+}

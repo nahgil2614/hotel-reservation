@@ -1,0 +1,11 @@
+RewriteEngine On
+
+# The APIs with their corresponding request type
+
+RewriteCond %{REQUEST_URI} ^/api/
+RewriteCond %{REQUEST_METHOD} POST
+RewriteRule ^api/(create-user|verify-user|reserve-room)$ index.php [L]
+
+RewriteCond %{REQUEST_URI} ^/api/
+RewriteCond %{REQUEST_METHOD} GET
+RewriteRule ^api/(get-user|get-room|cancel-room)$ index.php [L]

@@ -90,6 +90,16 @@ class UserModel extends BaseModel
         );
     }
 
+    public function getRes($id) {
+        $rooms = $this->query("SELECT *
+            FROM reservations
+            WHERE userId=?", "i", $id);
+        return array(
+            "code" => 0,
+            "rooms" => $rooms
+        );
+    }
+
     private function isRegisteringUserInfo(&$data) {
         return isset($data['name'])
             && isset($data['email'])

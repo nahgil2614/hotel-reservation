@@ -8,16 +8,13 @@ if (isset($uri[1]) && $uri[1] === "api" && isset($uri[2])) {
         $objUserController = new UserController();
         switch ($uri[2]) {
             case 'create-user':
-                $result = $objUserController->apiCallHandler('POST', 'create');
-                header("Location: /home");
+                $objUserController->apiCallHandler('POST', 'create');
                 break;
             case 'get-user':
                 $objUserController->apiCallHandler('GET', 'get');
                 break;
             case 'verify-user':
-                $result = $objUserController->apiCallHandler('POST', 'login');
-                setcookie("user", json_encode($result->user), time() + (86400 * 30), "/");
-                header("Location: /home");
+                $objUserController->apiCallHandler('POST', 'login');
                 break;
             case 'log-out-user':
                 setcookie("user", "", time() - 86400, "/");
@@ -33,7 +30,7 @@ if (isset($uri[1]) && $uri[1] === "api" && isset($uri[2])) {
         $objRoomController = new RoomController();
         switch ($uri[2]) {                
             case 'get-room':
-                $result = $objRoomController->apiCallHandler('GET', 'get');
+                $objRoomController->apiCallHandler('GET', 'get');
                 break;
             case 'reserve-room':
                 $objRoomController->apiCallHandler('POST', 'reserve');
@@ -42,6 +39,18 @@ if (isset($uri[1]) && $uri[1] === "api" && isset($uri[2])) {
                 $objRoomController->apiCallHandler('GET', 'cancel');
                 break;
             
+            default:
+                header("HTTP/1.1 404 Not Found");
+                exit;
+        }
+    }
+    else {
+        $objUserController = new UserController();
+        switch ($uri[2]) {
+            case 'get-reservations':
+                $objUserController->apiCallHandler('GET', 'getRes');
+                break;
+
             default:
                 header("HTTP/1.1 404 Not Found");
                 exit;

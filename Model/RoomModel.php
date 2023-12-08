@@ -53,7 +53,7 @@ class RoomModel extends BaseModel
         ON r.typeId=t.id
         $where");
 
-        $maxNoPeople = 0;
+        /*$maxNoPeople = 0;
         foreach ($rooms as $room) {
             $maxNoPeople += $room["noPeople"];
         }
@@ -62,7 +62,7 @@ class RoomModel extends BaseModel
                 "code" => 1,    // not enough capacity
                 "rooms" => []
             );
-        }
+        }*/
 
         return array(
             "code" => 0,

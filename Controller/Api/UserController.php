@@ -25,4 +25,10 @@ class UserController extends BaseController
         $body = $this->getPostBody();
         return $this->userModel->find($body['email'], $body['password']);
     }
+
+    protected function getRes() {
+        $arrQueryStringParams = $this->getQueryStringParams();
+        $id = $arrQueryStringParams['id'];
+        return $this->userModel->getRes($id);
+    }
 }

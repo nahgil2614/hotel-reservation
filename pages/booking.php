@@ -38,10 +38,6 @@
                 <label>Check-out:</label>
                 <input type="date" placeholder="Check-out-Date" id="checkOutDate">
             </div>
-            <div class="box">
-                <label>Number of People:</label> <br>
-                <input type="number" id="noPeople" placeholder="0" required min='0'>
-            </div>
         </div>
         <div class="search">
             <input type="submit" value="SEARCH" onclick="getRooms()">
@@ -66,46 +62,19 @@
     document.getElementById("checkInDate").setAttribute("min", today);
     document.getElementById("checkOutDate").setAttribute("min", today);
 </script>
-<div class="list">
-    <div class="room">
-        <h1 class="room-heading">STANDARD</h1>
-        <div class="room-detail">
-            <img src="../images/room.jpg">
-            <div class="room-description">
-
-                <p style="font-size: 25px; font-weight: bold;">Standard Room</p>
-
-
-                <p style="font-size: 20px; font-weight: 500;">2 guests</p>
-                <ul style="font-size: 20px; font-weight: normal; margin-left: -20px;">
-                    <li>
-                        <p>Free wifi and NetFlix</p>
-                    </li>
-                    <li>
-                        <p>Hot tub</p>
-                    </li>
-                    <li>
-                        <p>1 18m2 bed</p>
-                    </li>
-                </ul>
-                <div class="booking">
-                    <!-- <div class="num-room">
-                        <label>Choose number of room:</label> <br>
-                        <input type="number" placeholder="0" required min='0' max='8'>
-                    </div> -->
-                    <div class="price">
-                        <input type ="submit" value = "500.000 VND">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
+<div class="list" id="listRooms">
     
-    <div class="proceed">
-        <input type="submit" value="PROCEED">
-    </div>
-
+</div>
+<div class="proceed">
+    <input type="submit" value="PROCEED">
 </div>
 
+<?php
+$user = json_decode($_COOKIE['user']);
+
+echo "<script>
+const userId = $user->id;
+const userLevel = $user->level;
+</script>";
+?>
 <script src="js/booking.js"></script>

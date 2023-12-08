@@ -35,7 +35,7 @@ class UserModel extends BaseModel
             );
         }
         
-        $message = $this->query("INSERT INTO users(name, email, password, phone, creditCard, level) values (?, ?, ?, ?, ?, ?)", "sssssi", ...array_values($data));
+        $message = $this->query("INSERT INTO users(name, email, password, phone, creditCard, level) values (?, ?, ?, ?, ?, ?)", "sssssi", $data["name"], $data["email"], $data["password"], $data["phone"], $data["creditCard"], $data["level"]);
 
         if ($message === false) {
             return array(

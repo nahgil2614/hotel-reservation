@@ -9,7 +9,7 @@ class BaseController
         $this->sendOutput('', array('HTTP/1.1 404 Not Found'));
     }
 
-    public function requestHandler($method, $handlerName) {
+    public function apiCallHandler($method, $handlerName) {
         if ($_SERVER["REQUEST_METHOD"] === $method) {
             try {
                 $responseData = json_encode($this->$handlerName());

@@ -9,7 +9,7 @@ body {
     display: flex;
     align-items: center;
     padding-right: 4%;
-    position: fixed;
+    position: absolute;
     width: 96%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
     left: 0;

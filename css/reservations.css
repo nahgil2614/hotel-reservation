@@ -1,5 +1,6 @@
 body {
     background-color: #f4f4f4;
+    
 }
 /* header */
 .header {
@@ -8,7 +9,7 @@ body {
     display: flex;
     align-items: center;
     padding-right: 4%;
-    position: fixed;
+    position: absolute;
     width: 96%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, .08);
     left: 0;
@@ -72,88 +73,84 @@ nav ul li a:hover {
 .res:hover{
     color: white;
 }
-/* content */
-/* .content {
-    height: 3600px;
-    
-}    */
-.container{
+
+.content{
+    min-height: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-direction: column;
+}
+.container{
+    
     
 }
-
-.slogan{
-   
-    margin-top: 70px;
-    width: 95%;
-   
-    
-}
-.slogan-heading{
-    color: #1f1f1f;
-    font-size: 50px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 25px;
-}
-.slogan-h2{
-    color: #1f1f1f;
-    font-size: 18px;
-    font-weight: normal;
-    text-align: center;
-    margin-bottom: 25px;
-    
-}
-.list{
-    margin-top: 20px;
+.container-form{
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
 }
-.information{
+.room{
+    background-color: #fff;
+    box-shadow: 1px 2px #b3b3b3;
+    border-radius: 20px;
     margin-top: 60px;
     margin-bottom: 60px;
-    width:95%;
+    width:100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-direction: column;
 }
-.information-content{
+.room-detail{
     width: 100%;
     margin-top: 30px;
     display: flex;
     
     flex-direction: row;
 }
-.information-description{
+.room-description{
     margin-left: 30px;
     margin-top: -10px;
 }
-.event{
-    margin-bottom: 100px;
-    margin-top: 40px;
+.booking{
+    /* background-color: black; */
+    margin-top: 100px;
+    margin-left: -20px;
+    width: 600px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.event-list{
-    margin-top: 20px;
-    width: 95%;
-    display: flex;
-    justify-content: space-between;
     flex-direction: row;
+    justify-content: space-between;
+    align-items: end ;
 }
-.event-component{
-    width:30%;
 
+input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    outline: none;
+    background: #263760;
+    margin-top: 20px;
+    color: white;
+    box-sizing: border-box;
 }
+.booking .price{
+    margin-right: 40px;
+}
+.booking .price input:hover{
+    background-color: #55BDB3; 
+    cursor: pointer;
+}
+.dates{
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    justify-content: space-between;
+}
+.checkdate{
+    font-size: 17px;
+}
+
 /* footer */
 
 .footer {
